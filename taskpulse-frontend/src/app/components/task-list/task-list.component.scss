@@ -1,0 +1,62 @@
+@use "../../../styles/variables" as v;
+@use "sass:color"; // Import sass:color module
+
+.task-list {
+  max-width: 800px;
+  margin: v.$spacing * 2 auto;
+  padding: v.$spacing * 1.5;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+    color: v.$primary-color;
+    margin-bottom: v.$spacing * 1.5;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: v.$spacing;
+      text-align: left;
+      border-bottom: 1px solid v.$border-color;
+    }
+
+    th {
+      background-color: color.adjust(v.$primary-color, $lightness: 40%);
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: color.adjust(v.$background-color, $lightness: 2%);
+    }
+
+    tr:hover {
+      background-color: color.adjust(v.$primary-color, $lightness: 45%);
+    }
+  }
+
+  p {
+    text-align: center;
+    color: v.$secondary-color;
+  }
+}
+
+@media (max-width: 600px) {
+  .task-list {
+    margin: v.$spacing;
+    padding: v.$spacing;
+
+    table {
+      font-size: 0.9rem;
+
+      th,
+      td {
+        padding: v.$spacing * 0.5;
+      }
+    }
+  }
+}

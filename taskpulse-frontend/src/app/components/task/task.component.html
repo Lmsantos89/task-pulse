@@ -1,0 +1,66 @@
+<div class="task-form">
+  <h2>Create Task</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label>Title:</label>
+      <input
+        [(ngModel)]="task.title"
+        name="title"
+        placeholder="Title"
+        required
+      />
+    </div>
+    <div>
+      <label>Description:</label>
+      <input
+        [(ngModel)]="task.description"
+        name="description"
+        placeholder="Description"
+      />
+    </div>
+    <div>
+      <label>Status:</label>
+      <select [(ngModel)]="task.status" name="status">
+        <option value="TODO">To Do</option>
+        <option value="IN_PROGRESS">In Progress</option>
+        <option value="DONE">Done</option>
+      </select>
+    </div>
+    <div>
+      <label>Priority:</label>
+      <select [(ngModel)]="task.priority" name="priority">
+        <option value="LOW">Low</option>
+        <option value="MEDIUM">Medium</option>
+        <option value="HIGH">High</option>
+      </select>
+    </div>
+    <div>
+      <label>Created By (User ID):</label>
+      <input
+        [(ngModel)]="task.createdBy"
+        name="createdBy"
+        placeholder="Created By"
+        type="number"
+        required
+      />
+    </div>
+    <div>
+      <label>Assigned To (User ID):</label>
+      <input
+        [(ngModel)]="task.assignedTo"
+        name="assignedTo"
+        placeholder="Assigned To"
+        type="number"
+      />
+    </div>
+    <div>
+      <label>Due Date:</label>
+      <input
+        [(ngModel)]="task.dueDate"
+        name="dueDate"
+        placeholder="e.g., 2025-03-01T12:00:00Z"
+      />
+    </div>
+    <button type="submit">Create</button>
+  </form>
+</div>

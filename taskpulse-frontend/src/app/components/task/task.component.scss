@@ -1,0 +1,61 @@
+// Component-specific styles
+@use "../../../styles/variables" as v;
+
+.task-form {
+  max-width: 600px;
+  margin: v.$spacing * 2 auto;
+  padding: v.$spacing * 1.5;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+    color: v.$primary-color;
+    margin-bottom: v.$spacing * 1.5;
+  }
+
+  form {
+    display: grid;
+    gap: v.$spacing;
+
+    div {
+      display: flex;
+      align-items: center;
+
+      label {
+        width: 150px;
+        font-weight: 500;
+        color: v.$secondary-color;
+      }
+
+      input,
+      select {
+        width: v.$input-width;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .task-form {
+    margin: v.$spacing;
+    padding: v.$spacing;
+
+    form {
+      div {
+        flex-direction: column;
+        align-items: flex-start;
+
+        label {
+          width: 100%;
+          margin-bottom: 0.25rem;
+        }
+
+        input,
+        select {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

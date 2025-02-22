@@ -1,0 +1,63 @@
+    # General
+    *.log
+    *.tmp
+    .DS_Store
+
+    # Backend (Java/Spring Boot)
+    /taskpulse-backend/build/
+    /taskpulse-backend/.gradle/
+    /taskpulse-backend/gradle/
+    /taskpulse-backend/*.jar
+    /taskpulse-backend/.idea/
+    /taskpulse-backend/*.iml
+
+    # Frontend (Angular)
+    /taskpulse-frontend/node_modules/
+    /taskpulse-frontend/dist/
+    /taskpulse-frontend/.angular/
+    /taskpulse-frontend/*.log
+
+    # Docker
+    *.tar
+    *.tar.gz
+    /postgres-data/
+
+    # Compiled output
+    /dist
+    /tmp
+    /out-tsc
+    /bazel-out
+
+    # Node
+    /node_modules
+    npm-debug.log
+    yarn-error.log
+
+    # IDEs and editors
+    .idea/
+    .project
+    .classpath
+    .c9/
+    *.launch
+    .settings/
+    *.sublime-workspace
+
+    # Visual Studio Code
+    .vscode/*
+    !.vscode/settings.json
+    !.vscode/tasks.json
+    !.vscode/launch.json
+    !.vscode/extensions.json
+    .history/*
+
+    # Miscellaneous
+    /.angular/cache
+    .sass-cache/
+    /connect.lock
+    /coverage
+    /libpeerconnection.log
+    testem.log
+    /typings
+
+    # System files
+    Thumbs.db

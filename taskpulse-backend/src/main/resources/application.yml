@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: taskpulse-backend
+flyway:
+  enabled: true
+  locations: classpath:db/migration

@@ -1,0 +1,46 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15.11
+    container_name: taskpulse-postgres
+    environment:
+      POSTGRES_USER: taskpulse
+      POSTGRES_PASSWORD: secretpassword
+      POSTGRES_DB: taskpulse
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  backend:
+    image: taskpulse-backend:latest
+    container_name: taskpulse-backend
+    build:
+      context: ./taskpulse-backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/taskpulse
+      - SPRING_DATASOURCE_USERNAME=taskpulse
+      - SPRING_DATASOURCE_PASSWORD=secretpassword
+    restart: unless-stopped
+
+  frontend:
+    image: taskpulse-frontend:latest
+    container_name: taskpulse-frontend
+    build:
+      context: ./taskpulse-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+    environment:
+      - API_URL=http://backend:8080/api
+    restart: unless-stopped
+
+volumes:
+  postgres-data:

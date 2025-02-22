@@ -1,0 +1,60 @@
+@use "sass:color";
+@use "./styles/variables.scss" as v;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: v.$background-color;
+  color: #333;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  background-color: v.$primary-color;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: color.scale(v.$primary-color, $lightness: -10%);
+  }
+
+  &:disabled {
+    background-color: v.$secondary-color;
+    cursor: not-allowed;
+  }
+}
+
+input,
+select {
+  padding: 0.5rem;
+  border: 1px solid v.$border-color;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: v.$primary-color;
+    outline: none;
+    box-shadow: 0 0 5px rgba(v.$primary-color, 0.3);
+  }
+}
+
+input[type="number"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
