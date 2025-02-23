@@ -29,9 +29,9 @@ export class TaskListComponent {
   }
 
   loadTasks() {
-    this.taskService.getTasksByUser(this.userId).subscribe(
-      (tasks: Task[]) => (this.tasks = tasks),
-      (error) => console.error('Error fetching tasks:', error)
-    );
+    this.taskService.getTasksByUser(this.userId).subscribe({
+      next: (tasks: Task[]) => (this.tasks = tasks),
+      error: (err) => console.error('Error fetching tasks:', err),
+    });
   }
 }
