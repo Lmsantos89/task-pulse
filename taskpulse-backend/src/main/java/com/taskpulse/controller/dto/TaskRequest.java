@@ -6,7 +6,7 @@ import lombok.Data;
 public class TaskRequest {
     private String title;
     private String description;
-    private String status; // e.g., "TODO", "IN_PROGRESS", "DONE"
+    private String status; 
     private String priority; // e.g., "LOW", "MEDIUM", "HIGH"
     private Long createdBy; // User ID
     private Long assignedTo; // User ID (optional)
